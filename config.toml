@@ -1,0 +1,155 @@
+# Configuration of Academic
+# Documentation: https://sourcethemes.com/academic/
+
+baseurl = "/"
+title = "BagasBgy"
+copyright = "R. Dimas Bagas Herlambang &copy; 2018-2019"
+
+theme = "hugo-academic"
+enableEmoji = true
+footnotereturnlinkcontents = "<sup>^</sup>"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+preserveTaxonomyNames = true
+paginate = 10
+
+disqusShortname = ""
+googleAnalytics = ""
+
+defaultContentLanguage = "en"
+hasCJKLanguage = false
+defaultContentLanguageInSubdir = false
+
+enableGitInfo = false
+
+[outputs]
+  home = [ "HTML", "CSS", "RSS", "JSON" ]
+  section = [ "HTML", "RSS" ]
+
+[blackfriday]
+  hrefTargetBlank = true
+  fractions = true
+  smartypants = true
+  extensions = ["backslashLineBreak"]
+
+[params]
+  name = "R. Dimas Bagas Herlambang"
+  role = "Corporate Consultant"
+
+  organizations = [
+    {name = "Algoritma Data Science Academy", url = "https://algorit.ma"}
+  ]
+
+  gravatar = false
+  avatar = "about/portrait.png"
+
+  email = "bagas@algorit.ma.org"
+  address = """
+  Algoritma Data Science Education Center
+
+  4th Floor, Menara Kadin Indonesia, <br>
+  Jl. H. R. Rasuna Said Blok X-5 No. Kav 3, <br>
+  Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12950
+  """
+  office_hours = """
+  Monday to Friday, 10.00 to 19.00 <br>
+  Weekend, 00.00 to 23.59 on your favorite coffee shop :grin:
+  """
+  phone = "+62 878 5231 3159"
+  skype = ""
+  telegram = ""
+  keybase = ""
+  appointment_url = ""
+
+  color_theme = "default"
+  day_night = false
+  font = "default"
+  description = ""
+  sharing_image = ""
+  twitter = "dimasbagash"
+
+  logo = ""
+  date_format = "Jan 2, 2006"
+  time_format = "3:04 PM"
+  reading_time = true
+  comment_count = true
+  section_pager = false
+
+  math = false
+
+  highlight = true
+  highlight_languages = ["bash", "python", "r"]
+  highlight_style = "atom-one-light"
+
+  sharing = true
+  privacy_pack = false
+
+  custom_css = []
+  custom_js  = []
+
+
+  [params.projects]
+    post_format = 2
+
+  [[params.social]]
+    icon = "envelope"
+    icon_pack = "fas"
+    link = "mailto:bagas@algorit.ma"  # For a direct email link, use "mailto:test@example.org".
+
+  [[params.social]]
+    icon = "github"
+    icon_pack = "fab"
+    link = "https://github.com/bagasbgy"
+
+  [[params.social]]
+    icon = "twitter"
+    icon_pack = "fab"
+    link = "https://twitter.com/dimasbagash"
+
+  # [[params.social]]
+  #  icon = "google-scholar"
+  #  icon_pack = "ai"
+  #  link = "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ"
+
+  # [[params.social]]
+  #   icon = "cv"
+  #   icon_pack = "ai"
+  #   link = "files/cv.pdf"
+
+[params.menus]
+  align_right = true
+
+[[menu.main]]
+  name = "Home"
+  url = "#home"
+  weight = 1
+
+[[menu.main]]
+  name = "Posts"
+  url = "/post/"
+  weight = 2
+
+[[menu.main]]
+  name = "Projects"
+  url = "/project/"
+  weight = 3
+
+[[menu.main]]
+  name = "About"
+  url = "#about"
+  weight = 4
+
+[[menu.main]]
+  name = "Contact"
+  url = "#contact"
+  weight = 5
+
+# [[menu.main]]
+#    name = "CV"
+#    url = "files/cv.pdf"
+#    weight = 7
+
+[params.search]
+  engine = 1
+
+[languages.en]
+  languageCode = "en-us"
