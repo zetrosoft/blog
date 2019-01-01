@@ -1,7 +1,7 @@
 ---
 title: kerasgenerator v0.0.1 Released!
 author: R. Dimas Bagas Herlambang
-date: '`r paste(format(Sys.Date(), "%Y-%m-%d %H:%M:%S"), "+7000")`'
+date: 2019-01-01 11:56:00 +7000
 draft: no
 slug: index
 categories:
@@ -21,7 +21,7 @@ output:
     toc: false
 ---
 
-`kerasgenerator` package is designed to simplify the process of preparing the dataset so it could be properly passed to [`keras`](https://keras.rstudio.com)'s [`fit_generator()`](https://keras.rstudio.com/reference/fit_generator.html).
+`kerasgenerator` package is designed to simplify the process of preparing the dataset so it could be properly passed to [`keras`](https://keras.rstudio.com)' [`fit_generator()`](https://keras.rstudio.com/reference/fit_generator.html) function.
 
 Currently, it is still in a very early development stage--it is even only have 2 functions right now `r emo::ji("grin")`. But it is my first experience in developing a package, and I really can't resist to publish it to test some features from [`devtools`](https://devtools.r-lib.org/), [`usethis`](https://usethis.r-lib.org/), and [`pkgdown`](https://pkgdown.r-lib.org/). To be honest, this is also the sole reason a started this blog--which give me a perfect excuse to try [`blogdown`](https://github.com/rstudio/blogdown). I will share some of my experiences in using those package in this blog `r emo::ji("smile")`.
 
