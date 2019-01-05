@@ -1,6 +1,0 @@
-# redirects for packages site
-[[redirects]]
-  from = "https://kerasgenerator.bagasbgy.com/*"
-  to = "https://kerasgenerator.netlify.com/:splat"
-  status = 200
-  force = true
