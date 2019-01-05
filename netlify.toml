@@ -1,3 +1,8 @@
+[[build]]
+  base = '.'
+  publish = 'public'
+  command = 'hugo'
+
 [[redirects]]
   from = 'https://bagasbgy.netlify.com/*'
   to = 'https://bagasbgy.com/:splat'
