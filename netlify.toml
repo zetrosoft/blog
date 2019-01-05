@@ -1,0 +1,10 @@
+[[redirects]]
+  from = 'https://bagasbgy.netlify.com/*'
+  to = 'https://bagasbgy.com/:splat'
+  status = 301
+  force = true
+[[redirects]]
+  from = 'http://bagasbgy.netlify.com/*'
+  to = 'https://bagasbgy.com/:splat'
+  status = 301
+  force = true
