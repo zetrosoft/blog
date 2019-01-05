@@ -1,6 +1,6 @@
 # redirects for packages site
 [[redirects]]
   from = "/kerasgenerator/*"
-  to = "https://kerasgenerator.netlify.com/"
+  to = "https://kerasgenerator.netlify.com/:splat"
   status = 200
   force = true
