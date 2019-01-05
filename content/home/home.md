@@ -16,9 +16,9 @@ height = "450px"
   """
   content = """
   <br>
-  `kerasgenerator` is an R package containing some <br>
+  `kerasgenerator` is shipped with some <br>
   data generator functions for basic and advanced <br>
-  deep learning scenarios using `keras` API. <br>
+  deep learning scenarios using R interface to Keras. <br>
   <br>
   """
   align = "left"
