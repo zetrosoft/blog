@@ -1,0 +1,93 @@
+body.dark,
+.dark .docs-toc-link,
+.dark .docs-sidebar .nav > li:not(.active) > a,
+.dark .modal button.close,
+.dark input,
+.dark .form-control,
+.dark .form-control:focus {
+  color: hsl(60, 30%, 90%);
+  background: hsl(205, 20%, 10%);
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  font-weight: 700;
+  color: hsl(50, 85%, 50%);
+  letter-spacing: 0.05em;
+}
+
+.dark p {
+  letter-spacing: 0.025em;
+  word-spacing: 0.05em;
+  line-height: 1.75em;
+}
+
+.dark a {
+  color: hsl(50, 85%, 50%);
+}
+
+.dark a:hover, .dark a:focus {
+  color: hsl(50, 85%, 75%);
+}
+
+.dark .article-title a {
+  color: hsl(50, 85%, 50%);
+  letter-spacing: 0.075em;
+}
+
+.dark .article-title a:hover {
+  color: hsl(50, 85%, 75%);
+}
+
+.media.stream-item .article-style {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  letter-spacing: 0.025em;
+  word-spacing: 0.05em;
+  line-height: 1.75em;
+}
+
+.hero-overlay a {
+  color: hsl(50, 85%, 50%);
+}
+
+.hero-overlay a:hover {
+  color: hsl(50, 85%, 75%);
+}
+
+.dark pre, .dark code {
+  color: hsl(200, 90%, 65%);
+  background-color: hsl(205, 15%, 25%);
+}
+
+.hljs-meta {
+  color: hsl(200, 90%, 65%);
+}
+
+.hljs-comment, .hljs-quote {
+  color: hsl(0, 0%, 90%);
+  font-style: normal;
+}
+
+.hljs.shell {
+  background-color: hsl(205, 15%, 25%);
+}
+
+li {
+  margin: 0 0 0.65em 0;
+}
+
+/* #TOC {
+  float: left;
+  position: fixed;
+  width: 400px;
+  top: 350px;
+  left: 85px;
+  background: hsl(205, 20%, 10%);
+  border: 1.5px solid hsl(50, 85%, 50%);
+  padding: 10px;
+} */

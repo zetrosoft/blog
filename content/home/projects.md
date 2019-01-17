@@ -14,16 +14,4 @@ widget_layout = 1
 flip_alt_rows = false
 
 filter_default = 0
-
-[[filter]]
-  name = "All"
-  tag = "*"
-
-[[filter]]
-  name = "Package"
-  tag = "Package"
-
-[[filter]]
-  name = "R"
-  tag = "R"
 +++

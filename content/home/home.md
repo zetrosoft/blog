@@ -10,7 +10,7 @@ height = "450px"
 
 [[item]]
   title = """
-  <a href='post/kerasgenerator-v0-0-1-released/'>
+  <a href='posts/2019/01/01/kerasgenerator-v0-0-1-released'>
   kerasgenerator v0.0.1 Released!
   </a>
   """
@@ -22,9 +22,9 @@ height = "450px"
   <br>
   """
   align = "left"
-  overlay_color = "#666"
-  overlay_img = "headers/kerasgenerator.png"
-  overlay_filter = 0.5
+  overlay_color = "hsl(205, 80%, 20%)"
+  overlay_img = "home/kerasgenerator.png"
+  overlay_filter = 0.6
   cta_label = "Visit the GitHub Repo"
   cta_url = "https://github.com/bagasbgy/kerasgenerator/"
 +++

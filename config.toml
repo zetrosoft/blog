@@ -1,19 +1,20 @@
-# Configuration of Academic
-# Documentation: https://sourcethemes.com/academic/
-
-baseurl = "/"
+baseurl = "https://bagasbgy.com/"
 title = "BagasBgy"
 copyright = "R. Dimas Bagas Herlambang &copy; 2018-2019"
 
 theme = "hugo-academic"
 enableEmoji = true
+
 footnotereturnlinkcontents = "<sup>^</sup>"
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+ignoreFiles = ["_files$", "_cache$"]
+
 preserveTaxonomyNames = true
+
 paginate = 10
 
-disqusShortname = ""
-googleAnalytics = ""
+disqusShortname = "bagasbgy"
+googleAnalytics = "UA-132363734-1"
 
 defaultContentLanguage = "en"
 hasCJKLanguage = false
@@ -50,19 +51,17 @@ enableGitInfo = false
   Jl. H. R. Rasuna Said Blok X-5 No. Kav 3, <br>
   Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12950
   """
-  office_hours = """
-  Monday to Friday, 10.00 to 19.00 <br>
-  Weekend, 00.00 to 23.59 on your favorite coffee shop :grin:
-  """
+  office_hours = "Monday to Friday, 10.00 to 19.00"
   phone = "+62 878 5231 3159"
   skype = ""
   telegram = ""
   keybase = ""
   appointment_url = ""
 
-  color_theme = "default"
+  color_theme = "dark-gold"
   day_night = false
   font = "default"
+  
   description = ""
   sharing_image = ""
   twitter = "dimasbagash"
@@ -74,16 +73,16 @@ enableGitInfo = false
   comment_count = true
   section_pager = false
 
-  math = false
+  math = true
 
   highlight = true
-  highlight_languages = ["bash", "python", "r"]
-  highlight_style = "atom-one-light"
+  highlight_languages = ["r"]
+  highlight_style = "atom-one-dark"
 
-  sharing = true
+  sharing = false
   privacy_pack = false
 
-  custom_css = []
+  custom_css = ["dark-gold.css"]
   custom_js  = []
 
 
@@ -93,7 +92,7 @@ enableGitInfo = false
   [[params.social]]
     icon = "envelope"
     icon_pack = "fas"
-    link = "mailto:bagas@algorit.ma"  # For a direct email link, use "mailto:test@example.org".
+    link = "mailto:bagas@algorit.ma"
 
   [[params.social]]
     icon = "github"
@@ -125,23 +124,18 @@ enableGitInfo = false
 
 [[menu.main]]
   name = "Posts"
-  url = "/post/"
+  url = "#posts"
   weight = 2
 
 [[menu.main]]
   name = "Projects"
-  url = "/project/"
+  url = "#projects"
   weight = 3
 
 [[menu.main]]
   name = "About"
   url = "#about"
   weight = 4
-
-[[menu.main]]
-  name = "Contact"
-  url = "#contact"
-  weight = 5
 
 # [[menu.main]]
 #    name = "CV"
@@ -153,3 +147,6 @@ enableGitInfo = false
 
 [languages.en]
   languageCode = "en-us"
+
+[permalinks]
+    post = "/posts/:year/:month/:day/:slug"

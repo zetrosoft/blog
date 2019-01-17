@@ -1,0 +1,15 @@
+name = "Dark-Gold"
+
+light = false
+
+primary = "hsl(50, 85%, 50%)"
+primary_light = "hsl(50, 85%, 65%)"
+primary_dark = "hsl(50, 85%, 35%)"
+
+menu_primary = "hsl(230, 25%, 10%)"
+menu_text = "hsl(50, 85%, 35%)"
+menu_text_active = "hsl(50, 85%, 50%)"
+menu_title = "hsl(50, 85%, 50%)"
+
+home_section_odd = "hsl(205, 40%, 10%)"
+home_section_even = "hsl(205, 40%, 15%)"

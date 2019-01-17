@@ -20,4 +20,4 @@ date = 2018-12-31T00:00:00
 
 # Biography
 
-An **Economist** who distracted a lot with **data science** things. Heavily addicted to **time series** and **deep learning** stuffs--and, of course, coffee and cigarette. Currently working at [Algoritma Data Science Academy](https://algorit.ma) as a Corporate Consultant.
+An **Economist** who distracted a lot with **data science** things. Heavily addicted to **time series** and **deep learning** stuffs--and, of course, coffee and cigarette. Currently working at Algoritma Data Science Academy as a Corporate Consultant.
