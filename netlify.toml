@@ -1,17 +1,3 @@
-[build]
-  base = ''
-  publish = 'public'
-  command = 'hugo'
-
-[context.production.environment]
-  HUGO_VERSION = 0.53
-
-[context.deploy-preview.environment]
-  HUGO_VERSION = 0.53
-
-[context.branch-deploy.environment]
-  HUGO_VERSION = 0.53
-
 [[redirects]]
   from = 'https://bagasbgy.netlify.com/*'
   to = 'https://bagasbgy.com/:splat'
