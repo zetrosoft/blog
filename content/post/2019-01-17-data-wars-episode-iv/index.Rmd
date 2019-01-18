@@ -2,7 +2,6 @@
 title: "Data Wars: Episode IV - A New Hope in Data Manipulation using R"
 author: R. Dimas Bagas Herlambang
 date: 2019-01-18 03:00:00 +7000
-draft: no
 slug: data-wars-episode-iv
 categories:
   - R
@@ -12,8 +11,7 @@ tags:
   - R
   - tidyverse
 output:
-  blogdown::html_page:
-    toc: false
+  blogdown::html_page
 ---
 
 ```{r setup, include=FALSE}
@@ -53,11 +51,11 @@ When importing the library, it give you messages about which packages that are a
 sessionInfo()
 ```
 
-As you can see, it actually loads many packages in the background. But don't worry, I will not cover all of them in this article; I will cover them for sure in later sequels and prequels :grin: If you really curious about those packages, I suggest you to checkout the detailed list at the `tidyverse` [official documentations](https://tidyverse.tidyverse.org){target="_blank"}.
+As you can see, it actually loads many packages in the background. Don't worry, I will not cover all of them in this article; But I will cover them for sure in later sequels and prequels :grin:. If you really curious about those packages, I suggest you to checkout the detailed list at the `tidyverse` [official documentations](https://tidyverse.tidyverse.org){target="_blank"}.
 
 ## Use the standard data representation: `tibble`
 
-Before I explain it in detail, let me give you a quick example by printing the `iris` dataset:
+The first step in learning the _tidy_ data wrangling is to be familiar with its standard data representation. Before I explain it in detail, let me give you a quick example by printing the `iris` dataset:
 
 ```{r}
 head(iris)
