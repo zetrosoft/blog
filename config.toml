@@ -149,4 +149,4 @@ enableGitInfo = false
   languageCode = "en-us"
 
 [permalinks]
-    post = "/posts/:year/:month/:day/:slug"
+    post = "/post/:year/:month/:day/:slug"
