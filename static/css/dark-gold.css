@@ -77,17 +77,6 @@ body.dark,
   background-color: hsl(205, 15%, 25%);
 }
 
-li {
+li:not(.nav-item, .fa, .fab, .fal, .far, .fas) {
   margin: 0 0 0.65em 0;
 }
-
-/* #TOC {
-  float: left;
-  position: fixed;
-  width: 400px;
-  top: 350px;
-  left: 85px;
-  background: hsl(205, 20%, 10%);
-  border: 1.5px solid hsl(50, 85%, 50%);
-  padding: 10px;
-} */

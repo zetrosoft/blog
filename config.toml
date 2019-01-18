@@ -71,12 +71,12 @@ enableGitInfo = false
   time_format = "3:04 PM"
   reading_time = true
   comment_count = true
-  section_pager = false
+  section_pager = true
 
   math = true
 
   highlight = true
-  highlight_languages = ["r"]
+  highlight_languages = ["bash", "python", "r"]
   highlight_style = "atom-one-dark"
 
   sharing = false
@@ -84,7 +84,6 @@ enableGitInfo = false
 
   custom_css = ["dark-gold.css"]
   custom_js  = []
-
 
   [params.projects]
     post_format = 2

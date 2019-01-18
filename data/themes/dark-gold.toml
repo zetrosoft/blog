@@ -12,4 +12,4 @@ menu_text_active = "hsl(50, 85%, 50%)"
 menu_title = "hsl(50, 85%, 50%)"
 
 home_section_odd = "hsl(205, 40%, 10%)"
-home_section_even = "hsl(205, 40%, 15%)"
+home_section_even = "hsl(205, 40%, 12.5%)"
