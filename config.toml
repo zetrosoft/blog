@@ -13,7 +13,7 @@ preserveTaxonomyNames = true
 
 paginate = 10
 
-disqusShortname = "bagasbgy"
+disqusShortname = "bagasbgy-blog"
 googleAnalytics = "UA-132363734-1"
 
 defaultContentLanguage = "en"
@@ -79,7 +79,7 @@ enableGitInfo = false
   highlight_languages = ["bash", "python", "r"]
   highlight_style = "atom-one-dark"
 
-  sharing = false
+  sharing = true
   privacy_pack = false
 
   custom_css = ["dark-gold.css"]
@@ -148,4 +148,4 @@ enableGitInfo = false
   languageCode = "en-us"
 
 [permalinks]
-    post = "/post/:year/:month/:day/:slug"
+  post = "/post/:year/:month/:slug"
