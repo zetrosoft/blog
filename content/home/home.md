@@ -10,7 +10,7 @@ height = "450px"
 
 [[item]]
   title = """
-  <a href='posts/2019/01/01/kerasgenerator-v0-0-1-released'>
+  <a href='/post/2019/01/kerasgenerator-v0-0-1-released/'>
   kerasgenerator v0.0.1 Released!
   </a>
   """

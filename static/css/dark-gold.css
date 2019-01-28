@@ -24,6 +24,7 @@ body.dark,
   letter-spacing: 0.025em;
   word-spacing: 0.05em;
   line-height: 1.75em;
+  text-align: justify;
 }
 
 .dark a {
@@ -41,6 +42,14 @@ body.dark,
 
 .dark .article-title a:hover {
   color: hsl(50, 85%, 75%);
+}
+
+.dark a > code {
+  color: hsl(50, 85%, 50%) !important;
+}
+
+.dark a:hover > code {
+  color: hsl(50, 85%, 75%) !important;
 }
 
 .media.stream-item .article-style {
@@ -61,7 +70,7 @@ body.dark,
 
 .dark pre, .dark code {
   color: hsl(200, 90%, 65%);
-  background-color: hsl(205, 15%, 25%);
+  background-color: hsl(205, 15%, 20%);
 }
 
 .hljs-meta {
@@ -69,14 +78,31 @@ body.dark,
 }
 
 .hljs-comment, .hljs-quote {
-  color: hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 85%);
   font-style: normal;
-}
-
-.hljs.shell {
-  background-color: hsl(205, 15%, 25%);
 }
 
 li:not(.nav-item, .fa, .fab, .fal, .far, .fas) {
   margin: 0 0 0.65em 0;
+}
+
+.network-icon li {
+  margin-right: 1em;
+}
+
+.card-simple:first-of-type {
+  margin-top: 1.5em;
+}
+
+.card-simple p.read-more {
+  margin-top: 1.5em;
+}
+
+blockquote {
+  background-color: hsl(205, 15%, 20%);
+  border-left: .25rem solid hsl(0, 0%, 65%);
+}
+
+blockquote p {
+  color: hsl(0, 0%, 80%);
 }
