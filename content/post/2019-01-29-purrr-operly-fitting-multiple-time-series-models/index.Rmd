@@ -217,7 +217,7 @@ pjm
 
 ## Nested model fitting and forecasting
 
-In functional programming using `purrr`, we need to convert our `tbl` into a nested `tbl`. You can think a nested data like a _table inside a table_, we can be controlled using a key indicator; in other words, we can have `tbl` for each `provider` and samples. Using this format, the fitting and forecasting process would be very versatile, yet we can still convert the results as long as we have a proper key like `provider`.
+In functional programming using `purrr`, we need to convert our `tbl` into a nested `tbl`. You can think a nested data like a _table inside a table_, which could be controlled using a key indicator; in other words, we can have `tbl` for each `provider` and `samples`. Using this format, the fitting and forecasting process would be very versatile, yet we can still convert the results as long as we have a proper key like `provider`.
 
 Let's start by converting our `tbl` into a nested `tbl`. First, we need to add sample indicator so it could be recognized as a key when we `nest()` the data:
 
@@ -233,7 +233,7 @@ pjm %<>%
 pjm
 ```
 
-Then, we could start to `nest()` the the data by `provider` and `sample`, and `spread()` the `tbl`s based on `sample` key:
+Then, we could start to `nest()` the the data by `provider` and `sample`, and `spread()` the `tbl` based on `sample` key:
 
 ```{r nest-init}
 # nest the train data
@@ -245,9 +245,9 @@ pjm %<>%
 pjm
 ```
 
-### Prepare the data model list
+### Preparing the data model list
 
-For data and model combination, we could start by defining some options for data representation first. Recall that our series have a relatively high frequency, so we could consider two option of data representation here: a `ts` object with daily seasonality, and an `msts` with daily and weekly seasonality.
+For data and model combination, we could start by defining some options for data representation. Recall that our series have a relatively high frequency, so we could consider two option of data representation here: a `ts` object with daily seasonality, and an `msts` with daily and weekly seasonality.
 
 To incorporate them into our nested data, we need to create another nested data frame containing the data representation name, and the accompanying function for converting the data into the specified data representation.
 
@@ -287,11 +287,11 @@ pjm %<>%
 pjm
 ```
 
-### Prepare the time series model list
+### Preparing the time series model list
 
 Similar to when we create the data representation list, we could also make some time series models as a nested list.
 
-Again, let's start by making a list of models:
+Again, let's start by making a list of models. For this tutorial, let's consider to use `auto.arima()`, `ets()`, `stlm()`, and `tbats()`. We need to make some functions to call those model, and store them inside a list:
 
 ```{r nest-model-prep}
 # models list
@@ -339,7 +339,7 @@ pjm
 
 ### Execute the nested fitting
 
-To execute the model fitting, we need to wrap up the needed arguments as a `list` using `map()` function. Then, we could call the function using `invoke_map()`. We need to do this for data transformation using the function inside `data_fun`, then continue to fit the model with the same process using the function inside `model_fun`.
+To execute the model fitting, we need to wrap up the needed arguments as a `list` using `map()` function. Then, we could call the function using `invoke_map()`. We need to do this for data transformation using the function inside `data_fun`, then continue to fit the model with the same process using the function inside `model`.
 
 See the code in the chunk below for the implementation of the process:
 
@@ -519,7 +519,7 @@ pjm %>%
 
 ## Concluding remarks
 
-Fitting multiple time series models using `purrr` is actually simple, and could be extended to a more complex scenario, e.g., incorporate multiple preprocess `recipes` as another model combination. Despite of that, I do understand that for someone new to `purrr`, it would be very hard to follow the workflow; to be honest, even me spending around 80% of writing this post thinking about the easiest way to explain the process narratively. But I do hope that the codes above enough to explain the basic workflow for functional programming in time series :smile:
+Fitting multiple time series models using `purrr` is actually simple, and could be easily extended into a more complex scenario, such as incorporating multiple preprocess `recipes` as another model combination, or applying more complex rule in automating the fitting. Despite of that, I do understand that for someone new to `purrr`, it would be very hard to follow the workflow; to be honest, even me spending around 80% of writing this post thinking about the easiest way to explain the process narratively. But I do hope that the codes above enough to explain the basic workflow for functional programming in time series :smile:
 
 If you want to tryout yourself, you can checkout this post folder in my [blog repository](https://github.com/bagasbgy/blog){target="_blank"}, and use the distraction-free version of the codes above inside the [`fit.R`](https://github.com/bagasbgy/blog/tree/master/content/post/2019-01-29-purrr-operly-fitting-multiple-time-series-models/R/fit.R){target="_blank"} script, which located inside the `R` folder. I really recommend you to use your own dataset, so you could understand better about the workflow! :grin:
 

@@ -219,7 +219,7 @@ pjm
 </div>
 <div id="nested-model-fitting-and-forecasting" class="section level2">
 <h2>Nested model fitting and forecasting</h2>
-<p>In functional programming using <code>purrr</code>, we need to convert our <code>tbl</code> into a nested <code>tbl</code>. You can think a nested data like a <em>table inside a table</em>, we can be controlled using a key indicator; in other words, we can have <code>tbl</code> for each <code>provider</code> and samples. Using this format, the fitting and forecasting process would be very versatile, yet we can still convert the results as long as we have a proper key like <code>provider</code>.</p>
+<p>In functional programming using <code>purrr</code>, we need to convert our <code>tbl</code> into a nested <code>tbl</code>. You can think a nested data like a <em>table inside a table</em>, which could be controlled using a key indicator; in other words, we can have <code>tbl</code> for each <code>provider</code> and <code>samples</code>. Using this format, the fitting and forecasting process would be very versatile, yet we can still convert the results as long as we have a proper key like <code>provider</code>.</p>
 <p>Let’s start by converting our <code>tbl</code> into a nested <code>tbl</code>. First, we need to add sample indicator so it could be recognized as a key when we <code>nest()</code> the data:</p>
 <pre class="r"><code># adjust by sample
 pjm %&lt;&gt;%
@@ -244,7 +244,7 @@ pjm
 #&gt;  9 2018-04-13 08:00:00 AEP      -0.228 train 
 #&gt; 10 2018-04-13 09:00:00 AEP      -0.209 train 
 #&gt; # … with 21,494 more rows</code></pre>
-<p>Then, we could start to <code>nest()</code> the the data by <code>provider</code> and <code>sample</code>, and <code>spread()</code> the <code>tbl</code>s based on <code>sample</code> key:</p>
+<p>Then, we could start to <code>nest()</code> the the data by <code>provider</code> and <code>sample</code>, and <code>spread()</code> the <code>tbl</code> based on <code>sample</code> key:</p>
 <pre class="r"><code># nest the train data
 pjm %&lt;&gt;%
   group_by(provider, sample) %&gt;%
@@ -263,9 +263,9 @@ pjm
 #&gt; 6 DUQ      &lt;tibble [672 × 2]&gt; &lt;tibble [2,016 × 2]&gt;
 #&gt; 7 EKPC     &lt;tibble [672 × 2]&gt; &lt;tibble [2,016 × 2]&gt;
 #&gt; 8 FE       &lt;tibble [672 × 2]&gt; &lt;tibble [2,016 × 2]&gt;</code></pre>
-<div id="prepare-the-data-model-list" class="section level3">
-<h3>Prepare the data model list</h3>
-<p>For data and model combination, we could start by defining some options for data representation first. Recall that our series have a relatively high frequency, so we could consider two option of data representation here: a <code>ts</code> object with daily seasonality, and an <code>msts</code> with daily and weekly seasonality.</p>
+<div id="preparing-the-data-model-list" class="section level3">
+<h3>Preparing the data model list</h3>
+<p>For data and model combination, we could start by defining some options for data representation. Recall that our series have a relatively high frequency, so we could consider two option of data representation here: a <code>ts</code> object with daily seasonality, and an <code>msts</code> with daily and weekly seasonality.</p>
 <p>To incorporate them into our nested data, we need to create another nested data frame containing the data representation name, and the accompanying function for converting the data into the specified data representation.</p>
 <p>Let’s start with making a named list containing the transformation functions:</p>
 <pre class="r"><code># data funs list
@@ -337,10 +337,10 @@ pjm
 #&gt; 15 FE       &lt;tibble [672 × 2]&gt; &lt;tibble [2,016 × 2]&gt; ts            &lt;fn&gt;    
 #&gt; 16 FE       &lt;tibble [672 × 2]&gt; &lt;tibble [2,016 × 2]&gt; msts          &lt;fn&gt;</code></pre>
 </div>
-<div id="prepare-the-time-series-model-list" class="section level3">
-<h3>Prepare the time series model list</h3>
+<div id="preparing-the-time-series-model-list" class="section level3">
+<h3>Preparing the time series model list</h3>
 <p>Similar to when we create the data representation list, we could also make some time series models as a nested list.</p>
-<p>Again, let’s start by making a list of models:</p>
+<p>Again, let’s start by making a list of models. For this tutorial, let’s consider to use <code>auto.arima()</code>, <code>ets()</code>, <code>stlm()</code>, and <code>tbats()</code>. We need to make some functions to call those model, and store them inside a list:</p>
 <pre class="r"><code># models list
 models &lt;- list(
   auto.arima = function(x) auto.arima(x),
@@ -416,7 +416,7 @@ pjm %&lt;&gt;%
 </div>
 <div id="execute-the-nested-fitting" class="section level3">
 <h3>Execute the nested fitting</h3>
-<p>To execute the model fitting, we need to wrap up the needed arguments as a <code>list</code> using <code>map()</code> function. Then, we could call the function using <code>invoke_map()</code>. We need to do this for data transformation using the function inside <code>data_fun</code>, then continue to fit the model with the same process using the function inside <code>model_fun</code>.</p>
+<p>To execute the model fitting, we need to wrap up the needed arguments as a <code>list</code> using <code>map()</code> function. Then, we could call the function using <code>invoke_map()</code>. We need to do this for data transformation using the function inside <code>data_fun</code>, then continue to fit the model with the same process using the function inside <code>model</code>.</p>
 <p>See the code in the chunk below for the implementation of the process:</p>
 <pre class="r"><code># invoke nested fitting
 pjm %&lt;&gt;%
@@ -669,7 +669,7 @@ pjm
 </div>
 <div id="concluding-remarks" class="section level2">
 <h2>Concluding remarks</h2>
-<p>Fitting multiple time series models using <code>purrr</code> is actually simple, and could be extended to a more complex scenario, e.g., incorporate multiple preprocess <code>recipes</code> as another model combination. Despite of that, I do understand that for someone new to <code>purrr</code>, it would be very hard to follow the workflow; to be honest, even me spending around 80% of writing this post thinking about the easiest way to explain the process narratively. But I do hope that the codes above enough to explain the basic workflow for functional programming in time series :smile:</p>
+<p>Fitting multiple time series models using <code>purrr</code> is actually simple, and could be easily extended into a more complex scenario, such as incorporating multiple preprocess <code>recipes</code> as another model combination, or applying more complex rule in automating the fitting. Despite of that, I do understand that for someone new to <code>purrr</code>, it would be very hard to follow the workflow; to be honest, even me spending around 80% of writing this post thinking about the easiest way to explain the process narratively. But I do hope that the codes above enough to explain the basic workflow for functional programming in time series :smile:</p>
 <p>If you want to tryout yourself, you can checkout this post folder in my <a href="https://github.com/bagasbgy/blog" target="_blank">blog repository</a>, and use the distraction-free version of the codes above inside the <a href="https://github.com/bagasbgy/blog/tree/master/content/post/2019-01-29-purrr-operly-fitting-multiple-time-series-models/R/fit.R" target="_blank"><code>fit.R</code></a> script, which located inside the <code>R</code> folder. I really recommend you to use your own dataset, so you could understand better about the workflow! :grin:</p>
 <p>Ok, as always, here’s a <code>tidyverse</code> logo for you:</p>
 <pre><code>#&gt; ⬢ __  _    __   .    ⬡           ⬢  . 
