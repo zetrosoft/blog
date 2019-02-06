@@ -1,3 +1,4 @@
+# base url
 [[redirects]]
   from = 'https://bagasbgy.netlify.com/*'
   to = 'https://bagasbgy.com/:splat'

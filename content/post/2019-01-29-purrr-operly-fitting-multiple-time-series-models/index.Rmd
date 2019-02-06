@@ -27,7 +27,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-> **TL;DR**: you can find the distraction-free script in [here](https://github.com/bagasbgy/blog/tree/master/content/post/2019-01-29-purrr-operly-fitting-multiple-time-series-models/R/fit.R){target="_blank"}, and read some of my concluding remarks for a starter :grin:
+In this article, I will explain some basic functional programming for fitting multiple time series using R, particularly using `purrr` interface.
+
+> **TL;DR**: you can find the distraction-free script in [here](https://github.com/bagasbgy/blog/tree/master/content/post/2019-01-29-purrr-operly-fitting-multiple-time-series-models/R/fit.R){target="_blank"}, and read some of my concluding remarks for a quick summary :grin:
+
+## Preface
 
 When it comes to time series analyses and forecasting, R users are blessed with an invaluable tools that could helps us to conveniently fit--from basic to advanced--univariate time series models: [`forecast`](https://github.com/robjhyndman/forecast){target="_blank"} package. This package is authored by [Prof. Rob. J. Hyndman](https://robjhyndman.com/){target="_blank"} from Monash University. If you are interested in time series and forecasting, but new to the `forecast` package, I really recommend you to checkout his [Forecasting: Principles and Practice](https://otexts.com/fpp2/){target="_blank"} book to get you started; its online version is totally free!
 
@@ -99,9 +103,9 @@ pjm %>%
 
 ### The scenario
 
-To help us benchmark multiple models, we will need to split some portion of our data for validation. The strategy here is to cut the last 7 days as our test dataset. Then, we will cut again some (bigger) portion as the train dataset. This strategy is just the simplified version of [Rolling Forecasting Origin](https://robjhyndman.com/hyndsight/tscv/){target="_blank"}, with only having one pair of train and test sample.
+To help us benchmark multiple models, we will need to split some portion of our data for validation. The strategy here is to cut the last 4 weeks--approximately 1 month--as our test dataset. Then, we will cut again some (bigger) portion as the train dataset, say, 4 weeks times 3--approximately 3 months. This strategy is just the simplified version of [Rolling Forecasting Origin](https://robjhyndman.com/hyndsight/tscv/){target="_blank"}, with only having one pair of train and test sample. Of course, you can experiment with the lengths; will definitely cover more on this in one of my future posts, stay tuned!
 
-So the first step here is to get the start and end date of the train and test sample. The most straighforward way is to define the train and test size, then recursively get the start and end index for each. In this tutorial, let's use 3 months of data for train, and 1 months of data for test:
+So the first step here is to get the start and end date of the train and test sample. The most straighforward way is to define the train and test size, then recursively get the start and end index for each:
 
 ```{r data-split-indices}
 # train-val-test size
@@ -362,10 +366,9 @@ Now the next step is to measure the test error. First, we need to `forecast()` i
 ```{r nest-test-error}
 # calculate test errors
 pjm %<>%
-  mutate(
-    error =
-      map(fitted, ~ forecast(.x, h = 24 * 7 * 4)) %>%
-      map2_dbl(test, ~ rmse_vec(truth = .y$cons, estimate = .x$mean))
+  mutate(error =
+    map(fitted, ~ forecast(.x, h = 24 * 7 * 4)) %>%
+    map2_dbl(test, ~ rmse_vec(truth = .y$cons, estimate = .x$mean))
   ) %>%
   arrange(provider, error)
 
@@ -519,12 +522,21 @@ pjm %>%
 
 ## Concluding remarks
 
-Fitting multiple time series models using `purrr` is actually simple, and could be easily extended into a more complex scenario, such as incorporating multiple preprocess `recipes` as another model combination, or applying more complex rule in automating the fitting. Despite of that, I do understand that for someone new to `purrr`, it would be very hard to follow the workflow; to be honest, even me spending around 80% of writing this post thinking about the easiest way to explain the process narratively. But I do hope that the codes above enough to explain the basic workflow for functional programming in time series :smile:
+Fitting multiple time series models using `purrr` is very simple. Actually, it also could be easily extended into a more complex scenario, such as incorporating multiple preprocess `recipes` as another model combination, or applying more complex rule in automating the fitting. Despite of that, I do understand that for someone new to `purrr`, it would be very hard to follow the workflow; to be honest, even me spending around 80% of writing this post thinking about the easiest way to explain the process narratively. But I really hope that the codes above enough to explain the basic workflow for functional programming in time series :smile:
 
 If you want to tryout yourself, you can checkout this post folder in my [blog repository](https://github.com/bagasbgy/blog){target="_blank"}, and use the distraction-free version of the codes above inside the [`fit.R`](https://github.com/bagasbgy/blog/tree/master/content/post/2019-01-29-purrr-operly-fitting-multiple-time-series-models/R/fit.R){target="_blank"} script, which located inside the `R` folder. I really recommend you to use your own dataset, so you could understand better about the workflow! :grin:
+
+If you find any difficulties in trying this example, please let me know in the comment so I can help you :ok_hand:
 
 Ok, as always, here's a `tidyverse` logo for you:
 
 ```{r tidyverse-logo, echo=FALSE}
 tidyverse_logo()
+```
+
+**Session:**
+
+```{r session}
+# session info
+sessionInfo()
 ```
