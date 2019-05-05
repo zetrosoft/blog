@@ -3,7 +3,7 @@ widget = "projects"
 active = true
 weight = 3
 
-title = "[Projects](project)"
+title = "[Projects](projects)"
 subtitle = ""
 date = 2018-12-31T00:00:00
 

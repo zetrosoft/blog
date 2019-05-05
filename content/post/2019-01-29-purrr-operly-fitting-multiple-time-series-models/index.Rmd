@@ -11,8 +11,6 @@ tags:
   - R
   - tidyverse
   - time series
-output:
-  blogdown::html_page
 ---
 
 ```{r setup-knitr, include=FALSE}
@@ -522,9 +520,9 @@ pjm %>%
 
 ## Concluding remarks
 
-Fitting multiple time series models using `purrr` is very simple. Actually, it also could be easily extended into a more complex scenario, such as incorporating multiple preprocess `recipes` as another model combination, or applying more complex rule in automating the fitting. Despite of that, I do understand that for someone new to `purrr`, it would be very hard to follow the workflow; to be honest, even me spending around 80% of writing this post thinking about the easiest way to explain the process narratively. But I really hope that the codes above enough to explain the basic workflow for functional programming in time series :smile:
+Fitting multiple time series models using `purrr` is somehow a little bit complicated, but on the other hand, very flexible. Actually, it also could be easily extended into a more complex scenario, such as incorporating multiple preprocess `recipes` as another model combination, or applying more complex rule in automating the fitting. Despite of that, I do understand that for someone new to `purrr`, it would be very hard to follow the workflow; to be honest, even me spending around 80% of writing this post thinking about the easiest way to explain the process narratively. But I really hope that the codes above enough to explain the basic workflow for functional programming in time series :smile:
 
-If you want to tryout yourself, you can checkout this post folder in my [blog repository](https://github.com/bagasbgy/blog){target="_blank"}, and use the distraction-free version of the codes above inside the [`fit.R`](https://github.com/bagasbgy/blog/tree/master/content/post/2019-01-29-purrr-operly-fitting-multiple-time-series-models/R/fit.R){target="_blank"} script, which located inside the `R` folder. I really recommend you to use your own dataset, so you could understand better about the workflow! :grin:
+If you want to tryout yourself, you can checkout this post folder in my [blog repository](https://github.com/bagasbgy/blog){target="_blank"}, and use the distraction-free version of the codes above inside the [`fit.R`](https://github.com/bagasbgy/blog/tree/master/content/posts/2019-01-29-purrr-operly-fitting-multiple-time-series-models/R/fit.R){target="_blank"} script, which located inside the `R` folder. I really recommend you to use your own dataset, so you could understand better about the workflow! :grin:
 
 If you find any difficulties in trying this example, please let me know in the comment so I can help you :ok_hand:
 

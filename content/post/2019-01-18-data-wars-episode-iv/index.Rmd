@@ -10,8 +10,6 @@ tags:
   - dplyr
   - R
   - tidyverse
-output:
-  blogdown::html_page
 ---
 
 ```{r setup, include=FALSE}
